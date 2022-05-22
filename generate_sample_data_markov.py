@@ -4,7 +4,7 @@ from datetime import timedelta, date
 import numpy as np
 import pandas as pd
 
-from Config import nodes, trans_matrix, start_date, end_date
+from config import nodes, trans_matrix, start_date, end_date
 
 
 def state_change(start_state, nodes, trans_matrix):

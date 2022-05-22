@@ -1,5 +1,5 @@
 from clickhouse_driver import Client
-from Config import config, start_date, end_date
+from config import config, start_date, end_date
 
 
 class ClickhouseHelper:
@@ -52,8 +52,8 @@ class ClickhouseHelper:
         for action in actions:
             params += f", {column_name} = '{action}'"
         return self.client.execute(sql_template.replace('place_holder', params)), \
-                self.client.execute("select count(distinct uid) from retention_test where date between %start_date and "
-                                    "%end_date", {'start_date': start_date, 'end_date': end_date})
+                self.client.execute('select count(distinct uid) from retention_test where date between %(s)s and %(e)s',
+                                    {'s': start_date, 'e': end_date})[0][0]
 
 
 

@@ -1,6 +1,6 @@
 from collections import defaultdict
 import copy
-from Config import nodes, trans_matrix
+from config import nodes, trans_matrix
 
 
 class Graph:

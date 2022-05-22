@@ -1,4 +1,4 @@
-from Config import nodes, trans_matrix
+from config import nodes, trans_matrix
 from ClickhouseHelper import ClickhouseHelper
 from generate_all_paths import populate
 
@@ -9,9 +9,9 @@ def main():
     g.print_all_paths(0, len(nodes) - 2)
 
     for path in g.paths:
-
         res, total_uid = ck.window_funnel('action', path)
-        res = {nodes[i]: res[i][1] for i in range(len(res))}
+        res = {path[i]:
+                   f'{res[i][1] / total_uid * 100} %' for i in range(len(res))}
         print(res)
 
 
