@@ -4,7 +4,7 @@ from datetime import timedelta, date
 import numpy as np
 import pandas as pd
 
-from Config import nodes, trans_matrix
+from Config import nodes, trans_matrix, start_date, end_date
 
 
 def state_change(start_state, nodes, trans_matrix):
@@ -56,6 +56,6 @@ def generate(num_uid, start_date, end_date):
 
 
 if __name__ == "__main__":
-    res = generate(num_uid=100000, start_date=date(2022, 5, 1), end_date=date(2022, 5, 30))
+    res = generate(num_uid=100000, start_date=start_date, end_date=end_date)
     res.to_csv('data.csv', header=False, index=False)
     print(res.shape)
