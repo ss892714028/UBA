@@ -10,8 +10,7 @@ def main():
 
     for path in g.paths:
         res, total_uid = ck.window_funnel('action', path)
-        res = {path[i]:
-                   f'{res[i][1] / total_uid * 100} %' for i in range(len(res))}
+        res = {path[i]: f'{res[i][1] / total_uid * 100} %' for i in range(len(res))}
         print(res)
 
 

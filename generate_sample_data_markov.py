@@ -50,12 +50,11 @@ def generate(num_uid, start_date, end_date):
         sub_table = pd.DataFrame([[uid, actions[i], dates[i]] for i in range(num_of_actions)],
                                  columns=['UID', 'Action', 'Date'])
         res.append(sub_table)
-
     res = pd.concat(res)
     return res
 
 
 if __name__ == "__main__":
-    res = generate(num_uid=100000, start_date=start_date, end_date=end_date)
-    res.to_csv('data.csv', header=False, index=False)
+    res = generate(num_uid=1, start_date=start_date, end_date=end_date)
+    res.to_csv('data_sm.csv', header=False, index=False)
     print(res.shape)
